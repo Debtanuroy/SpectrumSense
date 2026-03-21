@@ -26,6 +26,17 @@ const ASSESSMENTS = [
     label:    "Start clinical assessment",
     recommended: true,
   },
+  {
+    icon:     "🎤",
+    tag:      "Upload audio",
+    tagColor: "#0d9660",
+    title:    "Voice Analysis",
+    subtitle: "Wav2Vec2 · Prosody · 4 markers",
+    desc:     "Upload a speech recording for automated prosody analysis — pitch variation, pause patterns, energy, and speech rate. All clinically associated with autism spectrum speech profiles.",
+    bullets:  ["Upload WAV/MP3/M4A", "Wav2Vec2 deep analysis", "4 clinical markers", "Separate results report"],
+    action:   "voice",
+    label:    "Start voice analysis",
+  },
 ];
 
 const DOMAINS = [
@@ -54,10 +65,10 @@ export default function LandingPage({ goTo }) {
             <em>spectrum-aware.</em>
           </h1>
           <p className="landing__sub">
-            SpectrumSense offers two levels of autism spectrum screening —
-            a fast preliminary check and a full DSM-5 aligned clinical
-            assessment with domain-by-domain analysis. All processing
-            is local. No data is stored.
+            SpectrumSense offers three levels of autism spectrum screening —
+            a fast preliminary check, a full DSM-5 aligned clinical assessment,
+            and AI-powered voice prosody analysis. All processing is local.
+            No data is stored.
           </p>
           <div className="landing__hero-cta animate-in animate-in--delay-2">
             <button className="btn btn--primary btn--lg" onClick={() => goTo("clinical")}>
@@ -82,7 +93,7 @@ export default function LandingPage({ goTo }) {
             { value:"AQ-10",  label:"Validated quick screen" },
             { value:"DSM-5",  label:"Clinical framework" },
             { value:"31",     label:"Clinical questions" },
-            { value:"1–5",    label:"Spectrum scoring" },
+            { value:"Wav2Vec2", label:"Voice AI model" },
           ].map(s => (
             <div className="landing__stat" key={s.label}>
               <span className="landing__stat-value">{s.value}</span>
@@ -92,10 +103,10 @@ export default function LandingPage({ goTo }) {
         </div>
       </section>
 
-      {/* Two assessment cards */}
+      {/* Three assessment cards */}
       <section className="landing__assessments container container--wide">
         <h2 className="landing__section-title animate-in">Choose your assessment</h2>
-        <div className="landing__two-cards">
+        <div className="landing__three-cards">
           {ASSESSMENTS.map((a, i) => (
             <div
               key={a.action}
@@ -175,6 +186,7 @@ export default function LandingPage({ goTo }) {
               <ul className="footer__links">
                 <li><button onClick={() => goTo("questionnaire")}>AQ-10 Preliminary Screen</button></li>
                 <li><button onClick={() => goTo("clinical")}>Full Clinical Assessment</button></li>
+                <li><button onClick={() => goTo("voice")}>Voice Prosody Analysis</button></li>
               </ul>
             </div>
             <div className="footer__col">
@@ -198,6 +210,7 @@ export default function LandingPage({ goTo }) {
               <ul className="footer__links footer__links--plain">
                 <li>React · Node.js · Express</li>
                 <li>DSM-5 aligned scoring</li>
+                <li>Wav2Vec2 voice analysis</li>
                 <li>AQ-10 (Baron-Cohen et al.)</li>
                 <li>Hackathon project 2025</li>
               </ul>

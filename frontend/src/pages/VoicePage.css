@@ -1,0 +1,88 @@
+.vpage { min-height:100vh; background:var(--off-white); }
+.vpage__body { padding:48px 24px 80px; display:flex; flex-direction:column; gap:24px; }
+
+.vpage__eyebrow {
+  display:inline-block; font-size:0.78rem; font-weight:600;
+  text-transform:uppercase; letter-spacing:0.08em;
+  color:#8b5cf6; background:#8b5cf620;
+  padding:4px 14px; border-radius:999px; margin-bottom:16px;
+}
+.vpage__title { font-size:2.75rem; line-height:1.1; letter-spacing:-0.02em; margin-bottom:16px; }
+.vpage__title em { font-style:italic; color:#8b5cf6; }
+.vpage__sub { font-size:1rem; color:var(--text-secondary); line-height:1.7; }
+
+/* Service status */
+.vpage__status {
+  display:flex; align-items:center; gap:10px;
+  padding:10px 16px; border-radius:var(--radius-md);
+  font-size:0.85rem; font-weight:500;
+}
+.vpage__status.online  { background:var(--success-light); color:var(--success); border:1px solid #9de0c0; }
+.vpage__status.offline { background:var(--danger-light);  color:var(--danger);  border:1px solid #f5b8b8; }
+.vpage__status-dot {
+  width:8px; height:8px; border-radius:50%; flex-shrink:0;
+  background:currentColor;
+  animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+
+/* Drop zone */
+.vpage__dropzone {
+  border:2px dashed var(--border-strong);
+  border-radius:var(--radius-xl);
+  background:var(--white);
+  padding:48px 32px;
+  text-align:center;
+  cursor:pointer;
+  transition:all 0.2s;
+  min-height:180px;
+  display:flex; align-items:center; justify-content:center;
+}
+.vpage__dropzone:hover { border-color:#8b5cf6; background:#8b5cf608; }
+.vpage__dropzone.dragging { border-color:#8b5cf6; background:#8b5cf612; transform:scale(1.01); }
+.vpage__dropzone.has-file { border-style:solid; border-color:#8b5cf6; cursor:default; background:#8b5cf608; }
+.vpage__dropzone-icon { font-size:2.5rem; margin-bottom:12px; }
+.vpage__dropzone-title { font-size:1.1rem; font-weight:500; color:var(--text-primary); margin-bottom:6px; }
+.vpage__dropzone-sub { font-size:0.9rem; color:var(--text-secondary); margin-bottom:10px; }
+.vpage__dropzone-formats { font-size:0.78rem; color:var(--text-muted); letter-spacing:0.05em; }
+
+/* File preview */
+.vpage__file-preview { display:flex; align-items:center; gap:14px; width:100%; }
+.vpage__file-icon { font-size:2rem; }
+.vpage__file-info { flex:1; text-align:left; }
+.vpage__file-name { font-weight:600; font-size:0.95rem; color:var(--text-primary); margin-bottom:3px; }
+.vpage__file-size { font-size:0.8rem; color:var(--text-muted); }
+.vpage__file-remove {
+  background:none; border:1px solid var(--border); color:var(--text-muted);
+  width:28px; height:28px; border-radius:50%; cursor:pointer;
+  font-size:0.75rem; display:flex; align-items:center; justify-content:center;
+  transition:all 0.15s; flex-shrink:0;
+}
+.vpage__file-remove:hover { border-color:var(--danger); color:var(--danger); background:var(--danger-light); }
+
+/* Markers */
+.vpage__marker-grid { display:flex; flex-direction:column; gap:16px; }
+.vpage__marker { display:flex; align-items:flex-start; gap:14px; padding:12px 0; border-bottom:1px solid var(--border); }
+.vpage__marker:last-child { border-bottom:none; }
+.vpage__marker-icon { font-size:1.3rem; flex-shrink:0; width:28px; text-align:center; }
+.vpage__marker-label { font-size:0.9rem; font-weight:600; color:var(--text-primary); margin-bottom:3px; display:flex; align-items:center; gap:8px; }
+.vpage__marker-weight { font-size:0.72rem; font-weight:600; color:#8b5cf6; background:#8b5cf618; padding:2px 8px; border-radius:999px; }
+.vpage__marker-desc { font-size:0.82rem; color:var(--text-secondary); line-height:1.5; }
+
+/* Tips */
+.vpage__tips-list { list-style:none; display:flex; flex-direction:column; gap:10px; }
+.vpage__tips-list li { font-size:0.875rem; color:var(--text-secondary); line-height:1.5; }
+
+/* Error */
+.vpage__error { display:flex; gap:10px; align-items:flex-start; background:var(--danger-light); border:1px solid #f5b8b8; border-radius:var(--radius-md); padding:14px 16px; font-size:0.875rem; color:var(--danger); }
+
+/* Actions */
+.vpage__actions { display:flex; gap:12px; align-items:center; }
+.vpage__analyzing { display:flex; align-items:center; gap:10px; }
+.vpage__spinner-sm {
+  width:16px; height:16px; border:2px solid rgba(255,255,255,0.4);
+  border-top-color:#fff; border-radius:50%;
+  animation:spin 0.7s linear infinite; flex-shrink:0;
+}
+@keyframes spin { to { transform:rotate(360deg); } }
+.vpage__progress-note { text-align:center; }
