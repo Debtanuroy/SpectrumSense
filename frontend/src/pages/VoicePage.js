@@ -124,10 +124,10 @@ export default function VoicePage({ goTo, onResult }) {
             <h3>What gets analysed</h3>
             <div className="vpage__marker-grid mt-16">
               {[
-                { icon:"🎵", label:"Pitch variation",  desc:"Low variation = monotone speech — strong autism marker", weight:"35%" },
-                { icon:"⏸️", label:"Pause patterns",   desc:"Frequency and duration of silences in speech", weight:"30%" },
-                { icon:"⚡", label:"Energy variation", desc:"Flat energy = reduced emotional expressiveness", weight:"20%" },
-                { icon:"🏃", label:"Speech rate",      desc:"Atypically fast or slow vs neurotypical baseline", weight:"15%" },
+                { icon:"🎵", label:"Pitch variability", desc:"Higher atypical variability = ASD marker. Calibrated from real audio data. Ma et al. 2024 (SMD=0.57).", weight:"35%" },
+                { icon:"⚡", label:"Energy variation",  desc:"Lower energy variation = flat affect = ASD marker. Bone et al. 2014.", weight:"35%" },
+                { icon:"🏃", label:"Speech rate",       desc:"Slower speech = more ASD-indicative. ASD ~2.7 vs non-ASD ~4.8 (ZCR proxy). Patel et al. 2020.", weight:"25%" },
+                { icon:"⏸️", label:"Pause patterns",   desc:"Pause frequency per minute. Reliable only on recordings over 45 seconds. Ma et al. 2024 (SMD=0.07).", weight:"5%" },
               ].map(function(m) {
                 return (
                   <div className="vpage__marker" key={m.label}>
